@@ -1,7 +1,13 @@
-import React from "react";
+import React from 'react'
 
 function App() {
-  return <h1>Hello World!</h1>;
+  return (
+    <div>
+      <h1>Hello world!</h1>
+
+      <button>Clica em mim</button>
+    </div>
+  )
 }
 
-export default App;
+export default App
