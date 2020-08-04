@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import media from 'styled-media-query'
+import { Link } from 'react-router-dom'
 
 export const LandingWrapper = styled.div`
   width: 100vw;
@@ -109,7 +110,7 @@ export const ButtonContainer = styled.div`
   }
 `
 
-export const Study = styled.a`
+export const Study = styled(Link)`
   margin-right: 1.6rem;
   background: var(--color-primary-lighter);
 
@@ -123,7 +124,7 @@ export const Study = styled.a`
   `}
 `
 
-export const Classes = styled.a`
+export const Classes = styled(Link)`
   background: var(--color-secondary);
 
   &:hover {
