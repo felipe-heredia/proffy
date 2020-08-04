@@ -29,7 +29,9 @@
       }
     ],
     "no-console": "off",
-    "camelcase": "off"
+    "camelcase": "off",
+    "class-methods-use-this": "off",
+    "func-names": "off"
   },
   "settings": {
     "import/resolver": {
