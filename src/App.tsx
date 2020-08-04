@@ -1,13 +1,13 @@
 import React from 'react'
 
-function App() {
-  return (
-    <div>
-      <h1>Hello world!</h1>
+import Routes from './routes'
+import GlobalStyles from './styles/global'
 
-      <button>Clica em mim</button>
-    </div>
-  )
-}
+const App: React.FC = () => (
+  <>
+    <Routes />
+    <GlobalStyles />
+  </>
+)
 
 export default App
