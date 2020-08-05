@@ -7,9 +7,10 @@ import * as S from './styled'
 
 interface Props {
   title: string
+  description?: string
 }
 
-const PageHeader: React.FC<Props> = ({ title, children }) => (
+const PageHeader: React.FC<Props> = ({ title, children, description }) => (
   <S.PageHeader>
     <S.TopBarContainer>
       <S.Return to="/">
@@ -19,6 +20,7 @@ const PageHeader: React.FC<Props> = ({ title, children }) => (
     </S.TopBarContainer>
     <S.HeaderContent>
       <strong>{title}</strong>
+      {description && <p>{description}</p>}
 
       {children}
     </S.HeaderContent>
