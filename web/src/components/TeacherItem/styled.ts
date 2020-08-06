@@ -57,7 +57,7 @@ export const TeacherItem = styled.article`
       display: block;
     }
 
-    button {
+    a {
       width: 20rem;
       height: 5.6rem;
       background: var(--color-secondary);
@@ -69,6 +69,8 @@ export const TeacherItem = styled.article`
       align-items: center;
       justify-content: space-evenly;
       transition: 0.2s;
+      text-decoration: none;
+      color: var(--color-title-in-primary);
 
       &:hover {
         background: var(--color-secondary-dark);
