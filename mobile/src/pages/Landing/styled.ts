@@ -13,13 +13,14 @@ export const Banner = styled.Image`
 
 export const Title = styled.Text`
   color: #fff;
+  font-family: Poppins_400Regular;
   font-size: 20px;
   line-height: 30px;
   margin-top: 80px;
 `
 
 export const TitleBold = styled.Text`
-  font-weight: bold;
+  font-family: Poppins_600SemiBold;
 `
 
 export const TextWrapper = styled.Text``
