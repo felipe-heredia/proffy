@@ -24,3 +24,47 @@ export const TitleBold = styled.Text`
 `
 
 export const TextWrapper = styled.Text``
+
+export const ButtonsContainer = styled.View`
+  flex-direction: row;
+  margin-top: 40px;
+  justify-content: space-between;
+`
+
+export const ButtonPrimary = styled.TouchableOpacity`
+  height: 150px;
+  width: 48%;
+  background: #333;
+  border-radius: 8px;
+  padding: 24px;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #9871f5;
+`
+
+export const ButtonText = styled.Text`
+  font-family: Archivo_700Bold;
+  color: #fff;
+  font-size: 20px;
+`
+
+export const ButtonSecondary = styled.TouchableOpacity`
+  height: 150px;
+  width: 48%;
+  background: #333;
+  border-radius: 8px;
+  padding: 24px;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #04b361;
+`
+
+export const TotalConnections = styled.Text`
+  font-family: Poppins_400Regular;
+  color: #d4c2ff;
+  font-size: 12px;
+  max-width: 140px;
+  margin-top: 40px;
+`

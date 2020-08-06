@@ -1,6 +1,10 @@
 import React from 'react'
 
+import { Image } from 'react-native'
 import landingImg from '../../assets/images/landing.png'
+import studyIcon from '../../assets/images/icons/study.png'
+import giveClassesIcon from '../../assets/images/icons/give-classes.png'
+import haeatIcon from '../../assets/images/icons/heart.png'
 
 import * as S from './styled'
 
@@ -13,6 +17,22 @@ const Landing: React.FC = () => (
       {'\n'}
       <S.TitleBold>O que deseja fazer?</S.TitleBold>
     </S.Title>
+
+    <S.ButtonsContainer>
+      <S.ButtonPrimary>
+        <Image source={studyIcon} />
+        <S.ButtonText>Estudar</S.ButtonText>
+      </S.ButtonPrimary>
+      <S.ButtonSecondary>
+        <Image source={giveClassesIcon} />
+        <S.ButtonText>Estudar</S.ButtonText>
+      </S.ButtonSecondary>
+    </S.ButtonsContainer>
+
+    <S.TotalConnections>
+      Total de 285 conexões já realizadas
+      <Image source={haeatIcon} />
+    </S.TotalConnections>
   </S.LandingPageWrapper>
 )
 
