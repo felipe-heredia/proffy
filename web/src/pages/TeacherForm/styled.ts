@@ -11,7 +11,7 @@ export const PageTeacherForm = styled.div`
   `}
 `
 
-export const FormWrapper = styled.main`
+export const Main = styled.main`
   background: var(--color-box-base);
   width: 100%;
   max-width: 75rem;
@@ -24,6 +24,8 @@ export const FormWrapper = styled.main`
     margin-top: -2rem;
   `}
 `
+
+export const FormWrapper = styled.form``
 
 export const Fieldset = styled.fieldset`
   border: 0;
