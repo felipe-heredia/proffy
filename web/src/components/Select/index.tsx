@@ -14,7 +14,7 @@ const Select: React.FC<SelectProps> = ({ label, name, options, labelcolor, ...re
     <S.SelectTitle labelcolor={labelcolor} htmlFor={name}>
       {label}
     </S.SelectTitle>
-    <S.SelectContent defaultValue="" id={name} {...rest}>
+    <S.SelectContent value="" id={name} {...rest}>
       <option value="" disabled hidden>
         Selecione uma opção
       </option>
