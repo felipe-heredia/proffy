@@ -21,7 +21,7 @@ const App: React.FC = () => {
   return (
     <>
       <Landing />
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
     </>
   )
 }
