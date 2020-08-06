@@ -36,7 +36,8 @@
         "tsx": "never"
       }
     ],
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "react/style-prop-object": "off"
   },
   "settings": {
     "import/resolver": {
