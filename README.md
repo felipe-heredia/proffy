@@ -32,7 +32,9 @@
 - <p style="color: red;">Este projeto foi desenvolvido durante a segunda edição de Next Level Week, um evento da Rocketseat. Este projeto visa conectar professores e alunos através de uma plataforma responsiva e de fácil acesso.</p>
 
 Você pode ver a **API**, [clicando aqui](https://github/felipesuri/proffy/server "API")
+
 Você pode ver o projeto **mobile**, [clicando aqui](https://github/felipesuri/proffy/mobile "Mobile")
+
 Você pode ver o projeto **web**, [clicando aqui](https://github/felipesuri/proffy/web "Web")
 
 ## 🚀 Tecnologias
