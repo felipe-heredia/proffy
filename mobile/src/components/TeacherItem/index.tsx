@@ -7,30 +7,38 @@ import whatsappIcon from '../../assets/images/icons/whatsapp.png'
 
 import * as S from './styled'
 
-const TeacherItem: React.FC = () => (
+export interface Teacher {
+  id: number
+  avatar: string
+  bio: string
+  cost: number
+  name: string
+  subject: string
+  whatsapp: string
+}
+
+interface TeacherItemProps {
+  teacher: Teacher
+}
+
+const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => (
   <S.TeacherItemWrapper>
     <S.Profile>
-      <S.Avatar source={{ uri: 'https://github.com/felipesuri.png' }} />
+      <S.Avatar source={{ uri: teacher.avatar }} />
 
       <S.ProfileInfo>
-        <S.Name>Felipe</S.Name>
-        <S.Subject>Português</S.Subject>
+        <S.Name>{teacher.name}</S.Name>
+        <S.Subject>{teacher.subject}</S.Subject>
       </S.ProfileInfo>
     </S.Profile>
 
-    <S.Bio>
-      Professor de português entusiasta de lingua portuguesa.
-      {'\n'}
-      {'\n'}
-      Apaixonado por escrever textos para o seu blog e produzir conteúdo para a comunidade
-      Javascript.
-    </S.Bio>
+    <S.Bio>{teacher.bio}</S.Bio>
 
     <S.Footer>
       <S.Price>
         Preço/hora
         {'  '}
-        <S.PriceValue>R$ 500</S.PriceValue>
+        <S.PriceValue>{teacher.cost}</S.PriceValue>
       </S.Price>
 
       <S.ButtonsContainer>
