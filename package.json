@@ -1,0 +1,18 @@
+{
+  "name": "proffy",
+  "version": "1.0.0",
+  "repository": "https://github.com/felipesuri/proffy.git",
+  "author": "Felipe Suri <felipeheredia1234@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "server": "npm run dev:server --prefix server",
+    "web": "npm run start --prefix web",
+    "mobile": "npm run start --prefix mobile",
+    "server:web": "concurrently \"npm run server\" \"npm run web\"",
+    "server:mobile": "concurrently \"npm run server\" \"npm run mobile\"",
+    "server:all": "concurrently \"npm run server\" \"npm run mobile\" \"npm run web\""
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0"
+  }
+}
