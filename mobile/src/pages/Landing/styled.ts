@@ -59,7 +59,7 @@ export const ButtonSecondary = styled(RectButton)`
   justify-content: space-between;
   align-items: center;
 
-  background: #04b361;
+  background: #04d361;
 `
 
 export const TotalConnections = styled.Text`
