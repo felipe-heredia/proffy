@@ -10,7 +10,7 @@
     "mobile": "npm run start --prefix mobile",
     "server:web": "concurrently \"npm run server\" \"npm run web\"",
     "server:mobile": "concurrently \"npm run server\" \"npm run mobile\"",
-    "server:all": "concurrently \"npm run server\" \"npm run mobile\" \"npm run web\""
+    "start": "concurrently \"npm run server\" \"npm run mobile\" \"npm run web\""
   },
   "devDependencies": {
     "concurrently": "^5.3.0"
