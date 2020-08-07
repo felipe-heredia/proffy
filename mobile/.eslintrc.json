@@ -40,7 +40,8 @@
     "react/style-prop-object": "off",
     "camelcase": "off",
     "react/prop-types": "off",
-    "import/no-extraneous-dependencies": "off"
+    "import/no-extraneous-dependencies": "off",
+    "react/jsx-wrap-multilines": "off"
   },
   "settings": {
     "import/resolver": {
