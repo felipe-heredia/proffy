@@ -33,6 +33,8 @@
 
 Você pode ver a **API**, [clicando aqui](https://github/felipesuri/proffy/server "API")
 
+[![Run in Insomnia}](https://insomnia.rest/images/run.svg)](https://insomnia.rest/run/?label=Proffy&uri=https%3A%2F%2Fgithub.com%2Ffelipesuri%2Fproffy%2Fblob%2Fmain%2Fserver%2FInsomnia.json "Rodar no Insomnia")
+
 Você pode ver o projeto **mobile**, [clicando aqui](https://github/felipesuri/proffy/mobile "Mobile")
 
 Você pode ver o projeto **web**, [clicando aqui](https://github/felipesuri/proffy/web "Web")
