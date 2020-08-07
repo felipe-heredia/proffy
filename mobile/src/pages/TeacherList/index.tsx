@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { BorderlessButton } from 'react-native-gesture-handler'
 import { Feather } from '@expo/vector-icons'
+import AsyncStorage from '@react-native-community/async-storage'
 
 import PageHeader from '../../components/PageHeader'
 import TeacherItem, { Teacher } from '../../components/TeacherItem'
@@ -10,17 +11,37 @@ import { api } from '../../services/api'
 
 const TeacherList: React.FC = () => {
   const [isFiltersVisible, setIsFiltersVisible] = useState(true)
+  const [favorites, setFavorites] = useState<number[]>([])
   const [teachers, setTeachers] = useState([])
 
   const [subject, setSubject] = useState('')
   const [week_day, setWeekDay] = useState('')
   const [time, setTime] = useState('')
 
+  function loadFavorites() {
+    AsyncStorage.getItem('favorites').then(response => {
+      if (response) {
+        const favoritedTeachers = JSON.parse(response)
+        const favoritedTeachersIds = favoritedTeachers.map((teacher: Teacher) => {
+          return teacher.id
+        })
+
+        setFavorites(favoritedTeachersIds)
+      }
+    })
+  }
+
+  useEffect(() => {
+    loadFavorites()
+  }, [])
+
   function handleToggleFiltersVisible() {
     setIsFiltersVisible(!isFiltersVisible)
   }
 
   async function handleFiltersSubmit() {
+    loadFavorites()
+
     const response = await api.get('/classes', {
       params: {
         subject,
@@ -84,7 +105,11 @@ const TeacherList: React.FC = () => {
 
       <S.TeacherList contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: 16 }}>
         {teachers.map((teacher: Teacher) => (
-          <TeacherItem key={teacher.id} teacher={teacher} />
+          <TeacherItem
+            key={teacher.id}
+            teacher={teacher}
+            favorited={favorites.includes(teacher.id)}
+          />
         ))}
       </S.TeacherList>
     </S.TeacherListWrapper>

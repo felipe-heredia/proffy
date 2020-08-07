@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Image, Linking } from 'react-native'
 
+import AsyncStorage from '@react-native-community/async-storage'
 import heartOutlineIcon from '../../assets/images/icons/heart-outline.png'
 import unFavoriteIcon from '../../assets/images/icons/unfavorite.png'
 import whatsappIcon from '../../assets/images/icons/whatsapp.png'
 
 import * as S from './styled'
+import { styles } from './styled'
+import { api } from '../../services/api'
 
 export interface Teacher {
   id: number
@@ -19,11 +22,43 @@ export interface Teacher {
 
 interface TeacherItemProps {
   teacher: Teacher
+  favorited: boolean
 }
 
-const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
+const TeacherItem: React.FC<TeacherItemProps> = ({ teacher, favorited }) => {
+  const [isFavorited, setIsFavorited] = useState(favorited)
+
   function handleLinkToWhatsapp() {
+    api.post('/connections', {
+      user_id: teacher.id,
+    })
+
     Linking.openURL(`whatsapp://send?phone=${teacher.whatsapp}`)
+  }
+
+  async function handleToggleFavorite() {
+    const favorites = await AsyncStorage.getItem('favorites')
+
+    let favoritesArray = []
+
+    if (favorites) {
+      favoritesArray = JSON.parse(favorites)
+    }
+
+    if (isFavorited) {
+      const favoriteIndex = favoritesArray.findIndex((teacherItem: Teacher) => {
+        return teacherItem.id === teacher.id
+      })
+
+      favoritesArray.splice(favoriteIndex, 1)
+      setIsFavorited(false)
+    } else {
+      favoritesArray.push(teacher)
+
+      setIsFavorited(true)
+    }
+
+    await AsyncStorage.setItem('favorites', JSON.stringify(favoritesArray))
   }
 
   return (
@@ -47,9 +82,15 @@ const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
         </S.Price>
 
         <S.ButtonsContainer>
-          <S.FavoriteButton style={S.styles.favorited}>
-            {/* <Image source={heartOutlineIcon} /> */}
-            <Image source={unFavoriteIcon} />
+          <S.FavoriteButton
+            style={[isFavorited ? styles.favorited : {}]}
+            onPress={handleToggleFavorite}
+          >
+            {isFavorited ? (
+              <Image source={unFavoriteIcon} />
+            ) : (
+              <Image source={heartOutlineIcon} />
+            )}
           </S.FavoriteButton>
 
           <S.ContactButton>
