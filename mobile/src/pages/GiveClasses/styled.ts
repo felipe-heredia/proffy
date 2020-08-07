@@ -16,7 +16,7 @@ export const ImageContent = styled.ImageBackground`
 export const Title = styled.Text`
   font-family: Archivo_700Bold;
   color: #fff;
-  font-size: 32;
+  font-size: 32px;
   line-height: 32px;
   max-width: 180px;
 `
