@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image } from 'react-native'
+import { Image, Linking } from 'react-native'
 
 import heartOutlineIcon from '../../assets/images/icons/heart-outline.png'
 import unFavoriteIcon from '../../assets/images/icons/unfavorite.png'
@@ -21,39 +21,47 @@ interface TeacherItemProps {
   teacher: Teacher
 }
 
-const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => (
-  <S.TeacherItemWrapper>
-    <S.Profile>
-      <S.Avatar source={{ uri: teacher.avatar }} />
+const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
+  function handleLinkToWhatsapp() {
+    Linking.openURL(`whatsapp://send?phone=${teacher.whatsapp}`)
+  }
 
-      <S.ProfileInfo>
-        <S.Name>{teacher.name}</S.Name>
-        <S.Subject>{teacher.subject}</S.Subject>
-      </S.ProfileInfo>
-    </S.Profile>
+  return (
+    <S.TeacherItemWrapper>
+      <S.Profile>
+        <S.Avatar source={{ uri: teacher.avatar }} />
 
-    <S.Bio>{teacher.bio}</S.Bio>
+        <S.ProfileInfo>
+          <S.Name>{teacher.name}</S.Name>
+          <S.Subject>{teacher.subject}</S.Subject>
+        </S.ProfileInfo>
+      </S.Profile>
 
-    <S.Footer>
-      <S.Price>
-        Preço/hora
-        {'  '}
-        <S.PriceValue>{teacher.cost}</S.PriceValue>
-      </S.Price>
+      <S.Bio>{teacher.bio}</S.Bio>
 
-      <S.ButtonsContainer>
-        <S.FavoriteButton style={S.styles.favorited}>
-          {/* <Image source={heartOutlineIcon} /> */}
-          <Image source={unFavoriteIcon} />
-        </S.FavoriteButton>
+      <S.Footer>
+        <S.Price>
+          Preço/hora
+          {'  '}
+          <S.PriceValue>{teacher.cost}</S.PriceValue>
+        </S.Price>
 
-        <S.ContactButton>
-          <Image source={whatsappIcon} />
-          <S.ContactButtonText>Entrar em contato</S.ContactButtonText>
-        </S.ContactButton>
-      </S.ButtonsContainer>
-    </S.Footer>
-  </S.TeacherItemWrapper>
-)
+        <S.ButtonsContainer>
+          <S.FavoriteButton style={S.styles.favorited}>
+            {/* <Image source={heartOutlineIcon} /> */}
+            <Image source={unFavoriteIcon} />
+          </S.FavoriteButton>
+
+          <S.ContactButton>
+            <Image source={whatsappIcon} />
+            <S.ContactButtonText onPress={handleLinkToWhatsapp}>
+              Entrar em contato
+            </S.ContactButtonText>
+          </S.ContactButton>
+        </S.ButtonsContainer>
+      </S.Footer>
+    </S.TeacherItemWrapper>
+  )
+}
 
 export default TeacherItem
